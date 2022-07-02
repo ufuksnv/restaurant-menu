@@ -11,6 +11,7 @@ namespace EntityLayer.Concrete
     {
         [Key]
         public int HotDrinkID { get; set; }
+        public string? HotDrinkName { get; set; }
         public string? HotDrinkImage { get; set; }
         public string? HotDrinkPrice { get; set; }
     }
