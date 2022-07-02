@@ -1,6 +1,6 @@
 const Logo = () => {
   return (
-    <h1>Restaurant</h1>
+    <div className='font-bold text-3xl'>Restaurant</div>
   );
 }
 

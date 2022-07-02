@@ -1,15 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
-  return (
-    <nav>
-      <ul>
-        <li><Link to='/'>Home</Link></li>
-        <li><Link to=''>Menu</Link></li>
-        <li><Link to=''>Popular</Link></li>
-      </ul>
-    </nav>
-  );
-}
+	const linkClasses = 'text-lg font-medium text-[#353535] hover:opacity-70';
+	return (
+		<nav className='flex gap-12'>
+			<Link to='/' className={linkClasses}>HOME</Link>
+			<Link to='' className={linkClasses}>MENU</Link>
+			<Link to='' className={linkClasses}>CONTACT</Link>
+		</nav>
+	);
+};
 
 export default Navbar;
