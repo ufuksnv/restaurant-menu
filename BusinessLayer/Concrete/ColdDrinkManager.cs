@@ -35,7 +35,7 @@ namespace BusinessLayer.Concrete
 
         public List<ColdDrink> TGetList()
         {
-            throw new NotImplementedException();
+            return _coldDrinkDal.GetList();
         }
 
         public void TUpdate(ColdDrink t)

@@ -35,7 +35,7 @@ namespace BusinessLayer.Concrete
 
         public List<MainCourse> TGetList()
         {
-            throw new NotImplementedException();
+            return _mainCourseDal.GetList();
         }
 
         public void TUpdate(MainCourse t)

@@ -35,7 +35,7 @@ namespace BusinessLayer.Concrete
 
         public List<Soup> TGetList()
         {
-            throw new NotImplementedException();
+            return _soupDal.GetList(); 
         }
 
         public void TUpdate(Soup t)

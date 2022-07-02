@@ -35,7 +35,7 @@ namespace BusinessLayer.Concrete
 
         public List<Dessert> TGetList()
         {
-            throw new NotImplementedException();
+            return _dessertDal.GetList();
         }
 
         public void TUpdate(Dessert t)
