@@ -4,6 +4,7 @@ import { RiMenu4Fill } from 'react-icons/ri';
 import Container from '../Container';
 import Logo from '../Logo';
 import Menu from '../Menu';
+import IconButton from '../IconButton';
 
 const Header = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,17 +12,15 @@ const Header = () => {
 	const handleCloseMenu = () => setIsMenuOpen(false);
 
 	return (
-		<header className='py-6 sm:py-8 md:py-10 lg:py-12'>
-			<Container className='flex items-center justify-between gap-4'>
+		<header className='h-24 sm:h-28 md:h-32 lg:h-36'>
+			<Container className='h-full flex items-center justify-between gap-4'>
 				<Logo />
-				{!isMenuOpen && (
-					<button
-						className='lg:hidden h-12 grid place-items-center aspect-square'
-						onClick={handleOpenMenu}
-					>
-						<RiMenu4Fill className='text-4xl' />
-					</button>
-				)}
+				<IconButton
+					isHidden={isMenuOpen}
+					className='lg:hidden h-12 grid place-items-center aspect-square text-4xl'
+					onClick={handleOpenMenu}
+					icon={RiMenu4Fill}
+				/>
 				<Menu isOpen={isMenuOpen} onClose={handleCloseMenu} />
 			</Container>
 		</header>
