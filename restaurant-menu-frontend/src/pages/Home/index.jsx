@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 
 import Container from '../../components/Container';
@@ -14,8 +15,8 @@ const DUMMY_PRODUCTS = [
 
 const Home = () => {
 	return (
-		<>
-			<Container element='section' id='hero' className='py-10 flex gap-16'>
+		<Fragment>
+			<Container element='section' id='hero' className='py-12 flex gap-16'>
 				<div className='flex-1 flex flex-col gap-8'>
 					<h1 className='font-bold text-7xl'>
 						Best & Fastest <span className='text-[#fa6235]'>Delivery</span> in
@@ -32,7 +33,7 @@ const Home = () => {
 					<img src={breakfast} alt='breakfast illustration' />
 				</div>
 			</Container>
-			<Container element='section' id='trending' className='py-10 flex gap-16'>
+			<Container element='section' id='trending' className='py-12 flex gap-16'>
 				<div className='w-full px-6 py-20 flex flex-col rounded-2xl bg-[#fafafa] gap-[5rem]'>
 					<header className='px-20 flex justify-between items-center'>
 						<h2 className='font-bold text-5xl'>Trending Recipes</h2>
@@ -45,7 +46,7 @@ const Home = () => {
 					</div>
 				</div>
 			</Container>
-		</>
+		</Fragment>
 	);
 };
 
