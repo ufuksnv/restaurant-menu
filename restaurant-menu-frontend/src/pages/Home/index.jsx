@@ -16,32 +16,31 @@ const DUMMY_PRODUCTS = [
 const Home = () => {
 	return (
 		<Fragment>
-			<Container element='section' id='hero' className='py-12 flex gap-16'>
-				<div className='flex-1 flex flex-col gap-8'>
-					<h1 className='font-bold text-7xl'>
+			<Container element='section' id='hero' className='py-12 flex gap-15 2xl:gap-16'>
+				<div className='flex-1 flex flex-col items-center xl:items-start gap-6 2xl:gap-8'>
+					<h1 className='font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-center xl:text-left text-dark-primary dark:text-light-primary'>
 						Best & Fastest <span className='text-[#fa6235]'>Delivery</span> in
 						Your Place
 					</h1>
-					<p className='font-medium text-lg text-[#353535]'>
+					<p className='font-medium sm:text-lg text-center xl:text-left text-dark-secondary dark:text-light-secondary'>
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse odit
-						voluptatem numquam minima quia necessitatibus eveniet autem, illo
-						adipisci et.
+						voluptatem numquam minima quia necessitatibus eveniet autem.
 					</p>
 					<Button className='w-fit'>Browse Menu</Button>
 				</div>
-				<div className='flex-1'>
+				<div className='hidden xl:grid place-items-center flex-1 '>
 					<img src={breakfast} alt='breakfast illustration' />
 				</div>
 			</Container>
 			<Container element='section' id='trending' className='py-12 flex gap-16'>
-				<div className='w-full px-6 py-20 flex flex-col rounded-2xl bg-[#fafafa] gap-[5rem]'>
-					<header className='px-20 flex justify-between items-center'>
-						<h2 className='font-bold text-5xl'>Trending Recipes</h2>
-						<Link to='/menu' className='font-medium text-lg text-[#fa6235]'>
+				<div className='w-full px-6 py-6 lg:py-20 flex flex-col rounded-2xl gap-8 lg:gap-[5rem] bg-light-100 dark:bg-dark-100'>
+					<header className='lg:px-20 flex flex-wrap justify-between items-baseline'>
+						<h2 className='font-bold text-2xl lg:text-5xl text-dark-primary dark:text-light-primary'>Trending Recipes</h2>
+						<Link to='/menu' className='font-medium text-lg text-accent'>
 							View All &gt;
 						</Link>
 					</header>
-					<div className='flex flex-wrap justify-around gap-6 mx-28'>
+					<div className='flex flex-wrap justify-around gap-6 lg:mx-28'>
 						{DUMMY_PRODUCTS.map(({ name, price, image }, i) => <Product key={i} name={name} price={price} image={image} />)}
 					</div>
 				</div>

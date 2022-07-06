@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+	body {
+		@apply text-dark-primary dark:text-light-primary bg-light-50 dark:bg-dark-50;
+	}
+  input[type="search"]::-webkit-search-cancel-button {
+    height: 1em;
+    width: 1em;
+    border-radius: 50em;
+    -webkit-appearance: none;
+    -webkit-mask: url(https://pro.fontawesome.com/releases/v5.10.0/svgs/solid/times-circle.svg) no-repeat 50% 50%;
+    -webkit-mask-size: contain;
+    mask: url(https://pro.fontawesome.com/releases/v5.10.0/svgs/solid/times-circle.svg) no-repeat 50% 50%;
+    mask-size: contain;
+    @apply bg-[rgb(0,0,0,0.38)] dark:bg-dark-50;
+  }
+}
