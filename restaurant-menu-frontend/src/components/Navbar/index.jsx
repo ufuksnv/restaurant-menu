@@ -6,8 +6,8 @@ import { MdContactSupport } from 'react-icons/md';
 
 const Navbar = ({ className = '' }) => {
 	const classes = {
-		nav: `px-4 flex flex-col lg:flex-row bg-white lg:bg-transparent rounded-lg shadow-[rgba(17,12,46,0.15)_0px_48px_100px_0px] lg:shadow-none lg:gap-12 ${className}`.trim(),
-		link: 'text-lg font-medium text-[#353535] hover:text-[#fa6235] focus-visible:text-[#fa6235] flex lg:block items-center gap-4 py-3 lg:p-0 border-b lg:border-none last:border-none',
+		nav: `px-4 flex flex-col lg:flex-row bg-white dark:bg-dark-100 lg:bg-transparent lg:dark:bg-transparent rounded-lg shadow-md lg:shadow-none lg:gap-12 ${className}`.trim(),
+		link: 'text-lg font-medium text-dark-secondary dark:text-light-primary hover:text-accent dark:hover:text-accent focus-visible:text-accent flex lg:block items-center gap-4 py-3 lg:p-0 border-b dark:border-charcoal-200 lg:border-none last:border-none',
 		icon: 'h-9 grid lg:hidden place-items-center aspect-square',
 	};
 	return (

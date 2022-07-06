@@ -2,8 +2,8 @@ import Button from '../Button';
 
 const Product = ({ name, price, image }) => {
 	return (
-		<div className='relative max-w-xs p-8 flex flex-col items-center gap-4 rounded-2xl bg-white shadow-[rgba(17,12,46,0.15)_0px_48px_100px_0px] overflow-hidden'>
-			<div className='absolute top-0 right-0 px-3 bg-[#fa6235] rounded-bl-2xl'>
+		<div className='relative max-w-xs p-8 flex flex-col items-center gap-4 rounded-2xl bg-light-50 dark:bg-dark-50 shadow-md overflow-hidden'>
+			<div className='absolute top-0 right-0 px-3 rounded-bl-2xl bg-accent'>
 				<p className='font-semibold text-white text-lg text-left'>${price}</p>
 			</div>
 			<img
@@ -11,7 +11,7 @@ const Product = ({ name, price, image }) => {
 				src={image}
 				alt={name}
 			/>
-			<h3 className='font-semibold text-2xl'>{name}</h3>
+			<h3 className='font-semibold text-2xl text-dark-primary dark:text-light-primary'>{name}</h3>
 			<Button className='w-full px-5 py-2 text-base'>Order Now</Button>
 		</div>
 	);
