@@ -9,6 +9,7 @@ const Searchbar = ({ className = '' }) => {
 		e.preventDefault();
     inputRef.current.value = '';
 		console.log(inputValue);
+    setInputValue('');
 	};
 
 	const handleChange = () => {
@@ -29,7 +30,7 @@ const Searchbar = ({ className = '' }) => {
 				onChange={handleChange}
 			/>
 			<button
-				className={`pr-2 pl-4 grid place-items-center outline-none transition-colors hover:text-accent focus-visible:text-accent ${
+				className={`pr-2 pl-4 grid place-items-center outline-none transition-colors hover:text-accent dark:hover:text-accent focus-visible:text-accent ${
 					inputValue.length > 0 ? 'text-accent' : 'text-dark-primary dark:text-light-primary'
 				}`}
 				type='submit'

@@ -8,7 +8,7 @@ const IconButton = ({
 	...props
 }) => {
 	const classes =
-		`h-12 grid place-items-center aspect-square ${className}`.trim();
+		`h-9 grid place-items-center aspect-square ${className}`.trim();
 
 	if (isHidden) return;
 
