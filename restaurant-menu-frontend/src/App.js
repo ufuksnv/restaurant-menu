@@ -1,20 +1,15 @@
 import { Fragment } from 'react';
-import { Routes, Route } from "react-router-dom";
 
 import Header from './components/Header';
-import Home from './pages/Home'
+import Content from './components/Content';
 
 const App = () => {
-  return (
-    <Fragment>
-      <Header />
-      <main>
-        <Routes>
-          <Route path='/' element={<Home />} />
-        </Routes>
-      </main>
-    </Fragment>
-  );
+	return (
+		<Fragment>
+			<Header />
+			<Content />
+		</Fragment>
+	);
 };
 
 export default App;
