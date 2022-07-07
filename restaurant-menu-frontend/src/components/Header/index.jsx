@@ -17,7 +17,7 @@ const Header = () => {
 				<Logo />
 				<IconButton
 					isHidden={isMenuOpen}
-					className='lg:hidden h-12 grid place-items-center aspect-square text-4xl'
+					className='lg:hidden h-9 grid place-items-center aspect-square text-4xl'
 					onClick={handleOpenMenu}
 					icon={RiMenu4Fill}
 				/>

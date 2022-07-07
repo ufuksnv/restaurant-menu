@@ -12,19 +12,19 @@ const Navbar = ({ className = '' }) => {
 	};
 	return (
 		<nav className={classes.nav}>
-			<NavLink to='/' className={({ isActive }) => `${classes.link} ${isActive ? 'text-dark-primary dark:text-light-primary' : 'text-dark-secondary dark:text-light-secondary'}`}>
+			<NavLink to='/' className={({ isActive }) => `${classes.link} ${isActive ? 'text-dark-primary dark:text-light-primary' : 'text-dark-disabled dark:text-light-disabled'}`}>
 				<span className={classes.icon}>
 					<AiFillHome className='text-3xl' />
 				</span>
 				HOME
 			</NavLink>
-			<NavLink to='/menu' className={({ isActive }) => `${classes.link} ${isActive ? 'text-dark-primary dark:text-light-primary' : 'text-dark-secondary dark:text-light-secondary'}`}>
+			<NavLink to='/menu' className={({ isActive }) => `${classes.link} ${isActive ? 'text-dark-primary dark:text-light-primary' : 'text-dark-disabled dark:text-light-disabled'}`}>
 				<span className={classes.icon}>
 					<CgMenuGridO className='text-3xl' />
 				</span>
 				MENU
 			</NavLink>
-			<NavLink to='/contact' className={({ isActive }) => `${classes.link} ${isActive ? 'text-dark-primary dark:text-light-primary' : 'text-dark-secondary dark:text-light-secondary'}`}>
+			<NavLink to='/contact' className={({ isActive }) => `${classes.link} ${isActive ? 'text-dark-primary dark:text-light-primary' : 'text-dark-disabled dark:text-light-disabled'}`}>
 				<span className={classes.icon}>
 					<MdContactSupport className='text-3xl' />
 				</span>
