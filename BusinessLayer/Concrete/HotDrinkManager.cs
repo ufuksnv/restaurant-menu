@@ -30,7 +30,7 @@ namespace BusinessLayer.Concrete
 
         public HotDrink TGetByID(int id)
         {
-            throw new NotImplementedException();
+            return _hotDrinkDal.GetByID(id);
         }
 
         public List<HotDrink> TGetList()

@@ -30,7 +30,7 @@ namespace BusinessLayer.Concrete
 
         public Salad TGetByID(int id)
         {
-            throw new NotImplementedException();
+            return _saladDal.GetByID(id);   
         }
 
         public List<Salad> TGetList()
