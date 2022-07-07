@@ -16,5 +16,18 @@ namespace restaurant_menu_backend.Controllers
             var values = saladManager.TGetList();
             return Ok(values);
         }
+        [HttpGet("{id}")]
+        public IActionResult GetSaladDetails(int id)
+        {
+            var values = saladManager.TGetByID(id);
+            if (values == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                return Ok(values);
+            }
+        }
     }
 }

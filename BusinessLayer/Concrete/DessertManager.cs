@@ -30,7 +30,7 @@ namespace BusinessLayer.Concrete
 
         public Dessert TGetByID(int id)
         {
-            throw new NotImplementedException();
+            return _dessertDal.GetByID(id);
         }
 
         public List<Dessert> TGetList()

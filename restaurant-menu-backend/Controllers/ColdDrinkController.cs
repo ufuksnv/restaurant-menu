@@ -18,5 +18,19 @@ namespace restaurant_menu_backend.Controllers
             var values = coldDrinkManager.TGetList();
             return Ok(values);
         }
-    }
+
+        [HttpGet("{id}")]
+        public IActionResult GetColdDrinkDetails(int id)
+        {
+            var values = coldDrinkManager.TGetByID(id);
+            if (values == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                return Ok(values);
+            }
+        }
+    }   
 }

@@ -16,5 +16,19 @@ namespace restaurant_menu_backend.Controllers
            var values = dessertManager.TGetList();
             return Ok(values);
         }
+
+        [HttpGet("{id}")]
+        public IActionResult GetDessertDetails(int id)
+        {
+            var values = dessertManager.TGetByID(id);
+            if (values == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                return Ok(values);
+            }
+        }
     }
 }

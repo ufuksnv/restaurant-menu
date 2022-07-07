@@ -30,7 +30,7 @@ namespace BusinessLayer.Concrete
 
         public Soup TGetByID(int id)
         {
-            throw new NotImplementedException();
+            return _soupDal.GetByID(id);
         }
 
         public List<Soup> TGetList()

@@ -16,5 +16,18 @@ namespace restaurant_menu_backend.Controllers
             var values = mainCourseManager.TGetList();
             return Ok(values);
         }
+        [HttpGet("{id}")]
+        public IActionResult MainCourseDetails(int id)
+        {
+            var values = mainCourseManager.TGetByID(id);
+            if (values == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                return Ok(values);
+            }
+        }
     }
 }

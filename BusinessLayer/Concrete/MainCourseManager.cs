@@ -30,7 +30,7 @@ namespace BusinessLayer.Concrete
 
         public MainCourse TGetByID(int id)
         {
-            throw new NotImplementedException();
+            return _mainCourseDal.GetByID(id);
         }
 
         public List<MainCourse> TGetList()

@@ -16,5 +16,18 @@ namespace restaurant_menu_backend.Controllers
             var values = soupManager.TGetList();
             return Ok(values);
         }
+        [HttpGet("{id}")]
+        public IActionResult GetSoupDetails(int id)
+        {
+            var values = soupManager.TGetByID(id);
+            if (values == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                return Ok(values);
+            }
+        }
     }
 }
