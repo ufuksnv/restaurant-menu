@@ -11,56 +11,68 @@ const ColorModeMenu = ({ className }) => {
 
 	const isColorModeSystem = storedColorMode === 'system';
 	const systemColorMode = prefersDarkMode ? 'dark' : 'light';
+
 	const initialState = isColorModeSystem ? systemColorMode : storedColorMode;
 	const [colorMode, setColorMode] = useState(initialState);
 
 	const [isOpen, setIsOpen] = useState(false);
 
+	const colorScheme = colorMode !== 'system' ? colorMode : systemColorMode;
+
 	useEffect(() => {
 		localStorage.setItem('color-mode', colorMode);
-		const colorScheme = colorMode !== 'system' ? colorMode : systemColorMode;
 		document.documentElement.className = colorScheme;
-	}, [colorMode, systemColorMode]);
+	}, [colorMode, colorScheme]);
 
 	const handleToggle = () => setIsOpen((prev) => !prev);
-	const handleColorModeLight = () => setColorMode('light');
-	const handleColorModeDark = () => setColorMode('dark');
-	const handleColorModeSystem = () => setColorMode('system');
+	const handleBlur = (e) =>
+		!e.currentTarget.contains(e.relatedTarget) && setIsOpen(false);
+	const handleSetColorMode = (mode) => setColorMode(mode);
 
 	return (
-		<div className={`group relative flex ${className}`}>
+		<div className={`relative flex ${className}`} onBlur={handleBlur}>
 			<IconButton
-				className='h-12 rounded-full bg-light-50 dark:bg-dark-100 dark:shadow-md text-xl'
-				icon={colorMode === 'dark' ? MdDarkMode : MdLightMode}
+				className='h-12 text-xl rounded-full dark:shadow-md bg-light-50 dark:bg-dark-100 transition-colors'
+				icon={colorScheme === 'dark' ? MdDarkMode : MdLightMode}
 				onClick={handleToggle}
 			/>
-			<div
-				className={`${
-					isOpen ? 'flex' : 'hidden'
-				} flex-col absolute py-2 mt-4 top-full right-0 rounded-lg bg-light-50 dark:bg-dark-100 shadow-md`}
-			>
-				<button
-					className='flex items-center gap-3 px-4 py-1 font-medium text-lg text-left hover:bg-light-200 hover:dark:bg-dark-200 relative before:absolute before:bottom-[-0.03125rem] before:bg-light-200 before:dark:bg-dark-200 before:w-[calc(100%-2rem)] before:h-[0.0625rem] before:mx-auto before:px-4'
-					onClick={handleColorModeLight}
-				>
-					<MdLightMode />
-					Light
-				</button>
-				<button
-					className='flex items-center gap-3 px-4 py-1 font-medium text-lg text-left hover:bg-light-200 hover:dark:bg-dark-200 relative before:absolute before:bottom-[-0.03125rem] before:bg-light-200 before:dark:bg-dark-200 before:w-[calc(100%-2rem)] before:h-[0.0625rem] before:mx-auto before:px-4'
-					onClick={handleColorModeDark}
-				>
-					<MdDarkMode />
-					Dark
-				</button>
-				<button
-					className='flex items-center gap-3 px-4 py-1 font-medium text-lg text-left hover:bg-light-200 hover:dark:bg-dark-200'
-					onClick={handleColorModeSystem}
-				>
-					<CgScreen />
-					System
-				</button>
-			</div>
+			{isOpen && (
+				<div className='py-2 mt-4 flex flex-col absolute top-full right-0 rounded-lg shadow-md bg-light-50 dark:bg-dark-100 transition-colors'>
+					<button
+						className={`px-4 py-1.5 flex items-center gap-3 font-medium text-lg text-left hover:bg-light-200 hover:dark:bg-dark-200 transition-colors ${
+							colorMode === 'light'
+								? 'text-dark-primary dark:text-light-primary'
+								: 'text-dark-disabled dark:text-light-disabled hover:text-dark-secondary hover:dark:text-light-secondary'
+						}`}
+						onClick={handleSetColorMode.bind(null, 'light')}
+					>
+						<MdLightMode />
+						Light
+					</button>
+					<button
+						className={`px-4 py-1.5 flex items-center gap-3 font-medium text-lg text-left hover:bg-light-200 hover:dark:bg-dark-200 transition-colors ${
+							colorMode === 'dark'
+								? 'text-dark-primary dark:text-light-primary'
+								: 'text-dark-disabled dark:text-light-disabled hover:text-dark-secondary hover:dark:text-light-secondary'
+						}`}
+						onClick={handleSetColorMode.bind(null, 'dark')}
+					>
+						<MdDarkMode />
+						Dark
+					</button>
+					<button
+						className={`px-4 py-1.5 flex items-center gap-3 font-medium text-lg text-left hover:bg-light-200 hover:dark:bg-dark-200 transition-colors ${
+							colorMode === 'system'
+								? 'text-dark-primary dark:text-light-primary'
+								: 'text-dark-disabled dark:text-light-disabled hover:text-dark-secondary hover:dark:text-light-secondary'
+						}`}
+						onClick={handleSetColorMode.bind(null, 'system')}
+					>
+						<CgScreen />
+						System
+					</button>
+				</div>
+			)}
 		</div>
 	);
 };
