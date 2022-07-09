@@ -4,6 +4,7 @@ import Navbar from '../Navbar';
 import Searchbar from '../Searchbar';
 import IconButton from '../IconButton';
 import ColorModeMenu from '../ColorModeMenu';
+import ColorModeGroup from '../ColorModeGroup';
 
 const Menu = ({ isOpen, onClose }) => {
 	return (
@@ -17,7 +18,8 @@ const Menu = ({ isOpen, onClose }) => {
 				/>
 				<Navbar className='order-2 lg:order-1' />
 				<Searchbar className='order-1 lg:order-2' />
-        <ColorModeMenu className='order-3 lg:order-3' />
+        <ColorModeMenu className='hidden lg:flex order-3' />
+        <ColorModeGroup className='flex lg:hidden order-3' />
 			</div>
 		</div>
 	);
