@@ -7,9 +7,9 @@ const Searchbar = ({ className = '' }) => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-    inputRef.current.value = '';
+		inputRef.current.value = '';
 		console.log(inputValue);
-    setInputValue('');
+		setInputValue('');
 	};
 
 	const handleChange = () => {
@@ -17,21 +17,23 @@ const Searchbar = ({ className = '' }) => {
 		setInputValue(search);
 	};
 
-	const styles = `flex flex-row-reverse h-12 items-stretch rounded-lg bg-light-50 dark:bg-dark-100 shadow-md overflow-hidden`;
-	const classes = `${styles} ${className}`.trim();
-
 	return (
-		<form className={classes} onSubmit={handleSubmit}>
+		<form
+			className={`flex flex-row-reverse h-12 items-stretch rounded-lg shadow-md overflow-hidden bg-light-50 dark:bg-dark-100 transition-colors ${className}`.trim()}
+			onSubmit={handleSubmit}
+		>
 			<input
-				className='flex-1 pr-2 pl-2 font-semibold bg-transparent transition-colors text-accent placeholder:text-dark-disabled dark:placeholder:text-light-disabled outline-none'
+				className='flex-1 pr-2 pl-2 font-semibold outline-none bg-transparent text-accent placeholder:text-dark-disabled dark:placeholder:text-light-disabled transition-colors'
 				type='search'
 				placeholder='Search'
 				ref={inputRef}
 				onChange={handleChange}
 			/>
 			<button
-				className={`pr-2 pl-4 grid place-items-center outline-none transition-colors hover:text-accent dark:hover:text-accent focus-visible:text-accent ${
-					inputValue.length > 0 ? 'text-accent' : 'text-dark-primary dark:text-light-primary'
+				className={`pr-2 pl-4 grid place-items-center outline-none hover:text-accent dark:hover:text-accent focus-visible:text-accent transition-colors ${
+					inputValue.length > 0
+						? 'text-accent'
+						: 'text-dark-primary dark:text-light-primary'
 				}`}
 				type='submit'
 			>

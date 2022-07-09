@@ -32,7 +32,7 @@ const ColorModeMenu = ({ className }) => {
 	return (
 		<div className={`relative flex ${className}`} onBlur={handleBlur}>
 			<IconButton
-				className='h-12 text-xl rounded-full dark:shadow-md bg-light-50 dark:bg-dark-100 transition-colors'
+				className='h-12 text-xl rounded-full dark:shadow-md text-dark-primary dark:text-light-primary bg-light-50 dark:bg-dark-100 transition-colors'
 				icon={colorScheme === 'dark' ? MdDarkMode : MdLightMode}
 				onClick={handleToggle}
 			/>

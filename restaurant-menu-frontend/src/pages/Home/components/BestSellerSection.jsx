@@ -38,8 +38,8 @@ const BestSellerSection = () => {
 			id='best-seller'
 			className='py-10 sm:py-12 flex gap-16'
 		>
-			<div className='w-full sm:px-6 sm:py-8 md:py-12 lg:py-20 grid grid-cols-2 justify-items-center rounded-2xl gap-8 md:gap-12 lg:gap-[5rem] sm:bg-light-100 sm:dark:bg-dark-100'>
-				<h2 className='place-self-center md:place-self-start col-span-2 md:col-span-1 md:ml-8 2xl:ml-20 font-bold text-3xl sm:text-4xl lg:text-5xl text-dark-primary dark:text-light-primary whitespace-nowrap'>
+			<div className='w-full sm:px-6 sm:py-8 md:py-12 lg:py-20 grid grid-cols-2 justify-items-center rounded-2xl gap-8 md:gap-12 lg:gap-[5rem] sm:bg-light-100 sm:dark:bg-dark-100 transition-colors'>
+				<h2 className='place-self-center md:place-self-start col-span-2 md:col-span-1 md:ml-8 2xl:ml-20 whitespace-nowrap font-bold text-3xl sm:text-4xl lg:text-5xl text-dark-primary dark:text-light-primary transition-colors'>
 					Best Selling
 				</h2>
 				<Link
