@@ -1,26 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { MdLightMode, MdDarkMode } from 'react-icons/md';
 import { CgScreen } from 'react-icons/cg';
 
+import { setColorMode } from '../../store/ui-actions';
+
 const ColorModeGroup = ({ className = '' }) => {
-	const storedColorMode = localStorage.getItem('color-mode');
-	const query = '(prefers-color-scheme: dark)';
-	const { matches: prefersDarkMode } = window.matchMedia(query);
+	const dispatch = useDispatch();
+	const colorMode = useSelector((state) => state.ui.colorMode);
 
-	const isColorModeSystem = storedColorMode === 'system';
-	const systemColorMode = prefersDarkMode ? 'dark' : 'light';
-
-	const initialState = isColorModeSystem ? systemColorMode : storedColorMode;
-	const [colorMode, setColorMode] = useState(initialState);
-
-	const colorScheme = colorMode !== 'system' ? colorMode : systemColorMode;
-
-	useEffect(() => {
-		localStorage.setItem('color-mode', colorMode);
-		document.documentElement.className = colorScheme;
-	}, [colorMode, colorScheme]);
-
-	const handleSetColorMode = (mode) => setColorMode(mode);
+	const handleSetColorMode = (mode) => () => dispatch(setColorMode(mode));
 
 	return (
 		<div
@@ -32,7 +20,7 @@ const ColorModeGroup = ({ className = '' }) => {
 						? 'text-dark-primary dark:text-light-primary'
 						: 'text-dark-disabled dark:text-light-disabled hover:text-dark-secondary hover:dark:text-light-secondary focus-visible:text-dark-secondary focus-visible:dark:text-light-secondary'
 				}`}
-				onClick={handleSetColorMode.bind(null, 'light')}
+				onClick={handleSetColorMode('light')}
 			>
 				<MdLightMode />
 				Light
@@ -43,7 +31,7 @@ const ColorModeGroup = ({ className = '' }) => {
 						? 'text-dark-primary dark:text-light-primary'
 						: 'text-dark-disabled dark:text-light-disabled hover:text-dark-secondary hover:dark:text-light-secondary focus-visible:text-dark-secondary focus-visible:dark:text-light-secondary'
 				}`}
-				onClick={handleSetColorMode.bind(null, 'dark')}
+				onClick={handleSetColorMode('dark')}
 			>
 				<MdDarkMode />
 				Dark
@@ -54,7 +42,7 @@ const ColorModeGroup = ({ className = '' }) => {
 						? 'text-dark-primary dark:text-light-primary'
 						: 'text-dark-disabled dark:text-light-disabled hover:text-dark-secondary hover:dark:text-light-secondary focus-visible:text-dark-secondary focus-visible:dark:text-light-secondary'
 				}`}
-				onClick={handleSetColorMode.bind(null, 'system')}
+				onClick={handleSetColorMode('system')}
 			>
 				<CgScreen />
 				System
