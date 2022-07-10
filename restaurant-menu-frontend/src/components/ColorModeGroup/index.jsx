@@ -1,11 +1,14 @@
-import useColorMode from '../../hooks/use-color-mode';
+import { useDispatch, useSelector } from 'react-redux';
 import { MdLightMode, MdDarkMode } from 'react-icons/md';
 import { CgScreen } from 'react-icons/cg';
 
-const ColorModeGroup = ({ className = '' }) => {
-	const { colorMode, setColorMode } = useColorMode();
+import { setColorMode } from '../../store/ui-actions';
 
-	const handleSetColorMode = (mode) => () => setColorMode(mode);
+const ColorModeGroup = ({ className = '' }) => {
+	const dispatch = useDispatch();
+	const colorMode = useSelector((state) => state.ui.colorMode);
+
+	const handleSetColorMode = (mode) => () => dispatch(setColorMode(mode));
 
 	return (
 		<div

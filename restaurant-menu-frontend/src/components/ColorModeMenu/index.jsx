@@ -1,20 +1,20 @@
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { MdLightMode, MdDarkMode } from 'react-icons/md';
 import { CgScreen } from 'react-icons/cg';
 
-import useColorMode from '../../hooks/use-color-mode';
+import { setColorMode } from '../../store/ui-actions';
 import IconButton from '../IconButton';
 
 const ColorModeMenu = ({ className }) => {
+	const dispatch = useDispatch();
+	const { colorMode, colorTheme } = useSelector((state) => state.ui);
 	const [isOpen, setIsOpen] = useState(false);
 
-	const { colorMode, setColorMode, colorTheme } = useColorMode();
-
+	const handleSetColorMode = (mode) => () => dispatch(setColorMode(mode));
 	const handleToggle = () => setIsOpen((prev) => !prev);
 	const handleBlur = (e) =>
 		!e.currentTarget.contains(e.relatedTarget) && setIsOpen(false);
-
-	const handleSetColorMode = (mode) => () => setColorMode(mode);
 
 	return (
 		<div className={`relative flex ${className}`} onBlur={handleBlur}>
