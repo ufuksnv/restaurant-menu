@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
+using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,14 +21,42 @@ namespace restaurant_menu_backend.Controllers
         public IActionResult GetHotDrinkDetails(int id)
         {
             var values = hotDrinkManager.TGetByID(id);
-               if (values == null)
+            if (values == null)
             {
                 return NotFound();
             }
-               else
+            else
             {
                 return Ok(values);
             }
+        }
+        [HttpDelete("{id}")]
+        public IActionResult DeleteHotDrink(int id)
+        {
+            var values = hotDrinkManager.TGetByID(id);
+            if (values == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                hotDrinkManager.TDelete(values);
+                return Ok();
+            }
+        }
+        [HttpPost("InsertHotDrink")]
+        public IActionResult InsertHotDrink(HotDrink hotDrink)
+        {
+            var entity = new HotDrink()
+            {
+                HotDrinkName = hotDrink.HotDrinkName,
+                HotDrinkImage = hotDrink.HotDrinkImage,
+                HotDrinkPrice = hotDrink.HotDrinkPrice,
+            };
+
+            hotDrinkManager.TAdd(entity);
+            return Ok();
+
         }
     }
 }
