@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
+using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -28,6 +29,35 @@ namespace restaurant_menu_backend.Controllers
             {
                 return Ok(values);
             }
+        }
+        [HttpDelete("{id}")]
+        public IActionResult DeleteSoup(int id)
+        {
+            var values = soupManager.TGetByID(id);
+            if (values == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                soupManager.TDelete(values);
+                return Ok();
+            }
+        }
+        [HttpPost("InsertSoup")]
+        public IActionResult InsertSoup(Soup soup)
+
+        {
+            var entity = new Soup()
+            {
+                SoupName = soup.SoupName,
+                SoupImage = soup.SoupImage,
+                SoupPrice = soup.SoupPrice,
+            };
+
+            soupManager.TAdd(entity);
+            return Ok();
+
         }
     }
 }

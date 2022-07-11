@@ -20,12 +20,12 @@ namespace BusinessLayer.Concrete
 
         public void TAdd(Soup t)
         {
-            throw new NotImplementedException();
+            _soupDal.Update(t);
         }
 
         public void TDelete(Soup t)
         {
-            throw new NotImplementedException();
+            _soupDal.Delete(t);
         }
 
         public Soup TGetByID(int id)
@@ -40,7 +40,7 @@ namespace BusinessLayer.Concrete
 
         public void TUpdate(Soup t)
         {
-            throw new NotImplementedException();
+            _soupDal.Update(t);
         }
     }
 }

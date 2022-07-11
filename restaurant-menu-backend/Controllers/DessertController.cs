@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
+using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -30,5 +31,35 @@ namespace restaurant_menu_backend.Controllers
                 return Ok(values);
             }
         }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteDessert(int id)
+        {
+            var values = dessertManager.TGetByID(id);
+            if (values == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                dessertManager.TDelete(values);
+                return Ok();
+            }
+        }
+        [HttpPost("InsertDessert")]
+        public IActionResult InsertDessert(Dessert dessert)
+        {
+            var entity = new Dessert()
+            {
+                DessertName = dessert.DessertName,
+                DessertImage = dessert.DessertImage,
+                DessertPrice = dessert.DessertPrice
+            };
+
+            dessertManager.TAdd(entity);
+            return Ok();
+
+        }
+
     }
 }

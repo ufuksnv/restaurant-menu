@@ -20,12 +20,12 @@ namespace BusinessLayer.Concrete
 
         public void TAdd(ColdDrink t)
         {
-            throw new NotImplementedException();
+            _coldDrinkDal.Insert(t);
         }
 
         public void TDelete(ColdDrink t)
         {
-            throw new NotImplementedException();
+            _coldDrinkDal.Delete(t);
         }
 
         public ColdDrink TGetByID(int id)

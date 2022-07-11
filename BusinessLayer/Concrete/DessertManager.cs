@@ -20,12 +20,12 @@ namespace BusinessLayer.Concrete
 
         public void TAdd(Dessert t)
         {
-            throw new NotImplementedException();
+            _dessertDal.Insert(t);
         }
 
         public void TDelete(Dessert t)
         {
-            throw new NotImplementedException();
+            _dessertDal.Delete(t);
         }
 
         public Dessert TGetByID(int id)
@@ -40,7 +40,7 @@ namespace BusinessLayer.Concrete
 
         public void TUpdate(Dessert t)
         {
-            throw new NotImplementedException();
+            _dessertDal.Update(t);
         }
     }
 }

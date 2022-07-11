@@ -20,12 +20,12 @@ namespace BusinessLayer.Concrete
 
         public void TAdd(MainCourse t)
         {
-            throw new NotImplementedException();
+            _mainCourseDal.Insert(t);
         }
 
         public void TDelete(MainCourse t)
         {
-            throw new NotImplementedException();
+            _mainCourseDal.Delete(t);
         }
 
         public MainCourse TGetByID(int id)
@@ -40,7 +40,7 @@ namespace BusinessLayer.Concrete
 
         public void TUpdate(MainCourse t)
         {
-            throw new NotImplementedException();
+            _mainCourseDal.Update(t);  
         }
     }
 }
