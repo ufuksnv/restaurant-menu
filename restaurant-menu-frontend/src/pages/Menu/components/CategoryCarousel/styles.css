@@ -1,0 +1,26 @@
+.swiper {
+	--swiper-navigation-color: rgb(0 0 0 / 0.87);
+	--swiper-pagination-color: rgb(0 0 0 / 0.87);
+	max-width: 100%;
+	padding-bottom: 48px;
+}
+.dark .swiper {
+	--swiper-navigation-color: rgb(255 255 255 / 1);
+	--swiper-pagination-color: rgb(255 255 255 / 1);
+}
+.swiper .swiper-slide {
+	max-width: fit-content;
+}
+.swiper-variant .swiper-button-prev,
+.swiper-variant .swiper-button-next {
+	height: 100%;
+	width: 48px;
+	top: 0;
+	bottom: 0;
+}
+.swiper-variant .swiper-button-prev {
+	left: 0;
+}
+.swiper-variant .swiper-button-next {
+	right: 0;
+}

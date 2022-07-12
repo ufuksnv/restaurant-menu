@@ -3,6 +3,12 @@
 @tailwind utilities;
 
 @layer base {
+  html.light {
+    color-scheme: light;
+  }
+  html.dark {
+    color-scheme: dark;
+  }
 	body {
 		@apply text-dark-primary dark:text-light-primary bg-light-50 dark:bg-dark-50 transition-colors;
 	}
