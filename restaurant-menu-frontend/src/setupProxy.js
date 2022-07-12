@@ -1,9 +1,7 @@
 ﻿const { createProxyMiddleware } = require('http-proxy-middleware');
 
-const context = ['/weatherforecast', '/api'];
-
 module.exports = function (app) {
-	const appProxy = createProxyMiddleware(context, {
+	const appProxy = createProxyMiddleware('/api', {
 		target: 'https://localhost:7176',
 		secure: false,
 	});

@@ -28,16 +28,19 @@ const CategoryItems = ({ category }) => {
 		<Container
 			id={category}
 			element='section'
-			className='p-6 mb-12 rounded-lg dark:shadow-md bg-light-50 dark:bg-dark-100 transition-colors'
+			className='p-6 mb-12 flex flex-col gap-8 md:gap-10 lg:gap-14'
 		>
-			<h2 className='mb-6 font-bold text-4xl'>{title}</h2>
-			<div className='flex flex-wrap gap-6'>
+			<h2 className='whitespace-nowrap font-bold text-center text-3xl sm:text-4xl md:text-[2.5rem] lg:text-5xl text-dark-primary dark:text-light-primary transition-colors'>
+				{title}
+			</h2>
+			<div className='flex flex-wrap justify-center gap-6'>
 				{products?.[category]?.map(({ id, name, price, image }) => (
 					<Product
 						key={id}
 						name={name}
 						price={price}
 						image={image}
+						className='sm:dark:bg-dark-100'
 						onClick={handleShowDetails(id)}
 					/>
 				))}

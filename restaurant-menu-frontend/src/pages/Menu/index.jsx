@@ -2,9 +2,9 @@ import { useState, useEffect, Fragment } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { fetchCategories } from '../../store/menu-actions';
-import CategoryCard from './components/CategoryCard';
-import CategoryItems from './components/CategoryItems';
 import Container from '../../components/Container';
+import CategoryCarousel from './components/CategoryCarousel';
+import CategoryItems from './components/CategoryItems';
 
 let isInitial = true;
 
@@ -30,23 +30,18 @@ const Menu = () => {
 
 	return (
 		<Fragment>
-			<Container
-				id='categories'
-				element='section'
-				className='p-6 mb-12 flex gap-4 rounded-lg dark:shadow-md bg-light-50 dark:bg-dark-100 transition-colors'
-			>
-				{categories?.map(({ id, title, image, controller, body }) => (
-					<CategoryCard
-						key={id}
-						id={id}
-						title={title}
-						image={image}
-						controller={controller}
-						body={body}
-						onClick={handleShowCategory(body)}
+			{categories && (
+				<Container
+					id='categories'
+					element='section'
+					className='px-0 pt-6 pb-2 mb-12 flex gap-4 rounded-lg sm:dark:shadow-md sm:bg-light-100 sm:dark:bg-dark-100 transition-colors'
+				>
+					<CategoryCarousel
+						categories={categories}
+						onShowCategory={handleShowCategory}
 					/>
-				))}
-			</Container>
+				</Container>
+			)}
 			{currentCategory && <CategoryItems category={currentCategory} />}
 		</Fragment>
 	);
