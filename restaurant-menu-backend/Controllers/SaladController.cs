@@ -60,5 +60,19 @@ namespace restaurant_menu_backend.Controllers
             return Ok();
 
         }
+        [HttpPut("UpdateSalad")]
+        public IActionResult UpdateSalad(Salad salad)
+        {
+
+            var entity = new Salad()
+            {
+                SaladID = salad.SaladID,
+                SaladName=salad.SaladName,
+                SaladImage=salad.SaladImage,
+                SaladPrice=salad.SaladPrice,
+            };
+            saladManager.TUpdate(entity);
+            return Ok();
+        }
     }
 }

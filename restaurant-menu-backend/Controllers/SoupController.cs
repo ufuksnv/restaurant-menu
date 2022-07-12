@@ -59,5 +59,20 @@ namespace restaurant_menu_backend.Controllers
             return Ok();
 
         }
+        [HttpPut("UpdateSoup")]
+        public IActionResult UpdateSoup(Soup soup)
+        {
+
+            var entity = new Soup()
+            {
+               SoupID = soup.SoupID,
+               SoupName = soup.SoupName,
+               SoupImage = soup.SoupImage,
+               SoupPrice= soup.SoupPrice,
+
+            };
+            soupManager.TUpdate(entity);
+            return Ok();
+        }
     }
 }

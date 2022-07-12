@@ -62,6 +62,22 @@ namespace restaurant_menu_backend.Controllers
 
         }
 
+        [HttpPut("UpdateCategory")]
+        public IActionResult UpdateCategory(Category category)
+        {
+
+            var entity = new Category()
+            {
+                id = category.id,  
+                Tittle = category.Tittle,
+                TittleImage=category.TittleImage,
+                ControllerAdress=category.ControllerAdress,
+                Body=category.Body,
+            };
+            categoryManager.TUpdate(entity);
+            return Ok();
+        }
+
 
     }
 }

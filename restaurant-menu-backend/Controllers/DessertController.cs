@@ -61,5 +61,20 @@ namespace restaurant_menu_backend.Controllers
 
         }
 
+        [HttpPut("UpdateDessert")]
+        public IActionResult UpdateDessert(Dessert dessert)
+        {
+
+            var entity = new Dessert()
+            {
+                DessertID = dessert.DessertID,
+                DessertName=dessert.DessertName,
+                DessertImage=dessert.DessertImage,
+                DessertPrice=dessert.DessertPrice
+            };
+            dessertManager.TUpdate(entity);
+            return Ok();
+        }
+
     }
 }
