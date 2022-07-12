@@ -60,5 +60,20 @@ namespace restaurant_menu_backend.Controllers
 
         }
 
+        [HttpPut("UpdateMainCourse")]
+        public IActionResult UpdateMainCourse(MainCourse mainCourse)
+        {
+
+            var entity = new MainCourse()
+            {
+              MainCourseID = mainCourse.MainCourseID,
+              MainCourseName=mainCourse.MainCourseName,
+              MainCourseImage=mainCourse.MainCourseImage,
+              MainCoursePrice=mainCourse.MainCoursePrice,
+            };
+            mainCourseManager.TUpdate(entity);
+            return Ok();
+        }
+
     }
 }

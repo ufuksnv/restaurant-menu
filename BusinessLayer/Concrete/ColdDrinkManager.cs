@@ -40,7 +40,8 @@ namespace BusinessLayer.Concrete
 
         public void TUpdate(ColdDrink t)
         {
-            throw new NotImplementedException();
+            _coldDrinkDal.Update(t);
+            
         }
     }
 }

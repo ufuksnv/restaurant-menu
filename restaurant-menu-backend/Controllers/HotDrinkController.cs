@@ -58,5 +58,20 @@ namespace restaurant_menu_backend.Controllers
             return Ok();
 
         }
+
+        [HttpPut("UpdateHotDrink")]
+        public IActionResult UpdateHotDrink(HotDrink hotDrink)
+        {
+
+            var entity = new HotDrink()
+            {
+                HotDrinkID = hotDrink.HotDrinkID,
+                HotDrinkName = hotDrink.HotDrinkName,
+                HotDrinkImage = hotDrink.HotDrinkImage,
+                HotDrinkPrice = hotDrink.HotDrinkPrice,
+            };
+            hotDrinkManager.TUpdate(entity);
+            return Ok();
+        }
     }
 }
