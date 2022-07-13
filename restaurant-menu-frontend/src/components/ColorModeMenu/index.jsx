@@ -24,7 +24,7 @@ const ColorModeMenu = ({ className }) => {
 				onClick={handleToggle}
 			/>
 			{isOpen && (
-				<div className='py-2 mt-4 flex flex-col absolute top-full right-0 rounded-lg shadow-md bg-light-50 dark:bg-dark-100 transition-colors'>
+				<div className='py-2 mt-4 flex flex-col absolute top-full right-0 z-30 rounded-lg shadow-md bg-light-50 dark:bg-dark-100 transition-colors'>
 					<button
 						className={`px-4 py-1.5 flex items-center gap-3 font-medium text-lg text-left hover:bg-light-200 hover:dark:bg-dark-200 transition-colors ${
 							colorMode === 'light'
