@@ -9,7 +9,7 @@ const BestSellerSection = () => {
 		<Container
 			element='section'
 			id='best-seller'
-			className='px-0 py-10 sm:py-12 flex gap-16'
+			className='px-0 sm:px-6 py-10 sm:py-12 flex gap-16'
 		>
 			<div className='w-full sm:py-6 md:py-8 lg:py-12 flex flex-col rounded-2xl gap-8 md:gap-10 lg:gap-14 bg-light-50 sm:bg-light-100 dark:bg-dark-50 sm:dark:bg-dark-100 transition-colors'>
 				<div className='px-6 md:px-8 lg:px-12 flex items-center justify-between'>
