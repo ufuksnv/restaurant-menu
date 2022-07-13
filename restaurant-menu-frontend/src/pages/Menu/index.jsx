@@ -34,12 +34,14 @@ const Menu = () => {
 				<Container
 					id='categories'
 					element='section'
-					className='px-0 pt-6 pb-2 mb-12 flex gap-4 rounded-lg sm:dark:shadow-md sm:bg-light-100 sm:dark:bg-dark-100 transition-colors'
+					className='px-0 sm:px-6 py-10 sm:py-12 flex gap-16'
 				>
-					<CategoryCarousel
-						categories={categories}
-						onShowCategory={handleShowCategory}
-					/>
+					<div className='w-full pt-6 pb-2 flex flex-col rounded-2xl gap-8 md:gap-10 lg:gap-14 bg-light-50 sm:bg-light-100 dark:bg-dark-50 sm:dark:bg-dark-100 transition-colors'>
+						<CategoryCarousel
+							categories={categories}
+							onShowCategory={handleShowCategory}
+						/>
+					</div>
 				</Container>
 			)}
 			{currentCategory && <CategoryItems category={currentCategory} />}
