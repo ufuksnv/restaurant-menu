@@ -23,7 +23,7 @@ const Searchbar = ({ className = '' }) => {
 			onSubmit={handleSubmit}
 		>
 			<input
-				className='flex-1 pr-2 pl-2 font-semibold outline-none bg-transparent text-accent placeholder:text-dark-disabled dark:placeholder:text-light-disabled transition-colors'
+				className='flex-1 pr-2 pl-2 leading-7 font-medium outline-none bg-transparent text-accent placeholder:text-dark-disabled dark:placeholder:text-light-disabled transition-colors'
 				type='search'
 				placeholder='Search'
 				ref={inputRef}

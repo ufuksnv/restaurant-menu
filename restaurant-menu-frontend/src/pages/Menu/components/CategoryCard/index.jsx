@@ -9,7 +9,7 @@ const CategoryCard = ({ title, image, className = '', onClick }) => {
 					src={image}
 					alt={title}
 				/>
-				<h3 className=' whitespace-nowrap font-semibold text-xl text-dark-primary dark:text-light-primary transition-colors'>
+				<h3 className='whitespace-nowrap font-primary font-semibold text-xl text-dark-primary dark:text-light-primary transition-colors'>
 					{title}
 				</h3>
 			</div>

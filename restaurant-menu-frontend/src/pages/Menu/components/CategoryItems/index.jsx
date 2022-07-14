@@ -30,7 +30,7 @@ const CategoryItems = ({ category }) => {
 			element='section'
 			className='p-6 mb-12 flex flex-col gap-8 md:gap-10 lg:gap-14'
 		>
-			<h2 className='whitespace-nowrap font-bold text-center text-3xl sm:text-4xl md:text-[2.5rem] lg:text-5xl text-dark-primary dark:text-light-primary transition-colors'>
+			<h2 className='whitespace-nowrap font-primary font-bold text-center text-3xl sm:text-4xl md:text-[2.5rem] lg:text-5xl text-dark-primary dark:text-light-primary transition-colors'>
 				{title}
 			</h2>
 			<div className='flex flex-wrap justify-center gap-6'>

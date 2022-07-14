@@ -9,6 +9,9 @@
 	::-webkit-scrollbar-thumb {
 		@apply rounded-lg bg-[#e5e5e5] dark:bg-dark-100;
 	}
+  html {
+    @apply font-secondary;
+  }
 	body {
 		@apply text-dark-primary dark:text-light-primary bg-light-50 dark:bg-dark-50 transition-colors;
 	}

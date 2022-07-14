@@ -14,7 +14,7 @@ const Header = () => {
 	return (
 		<header className='h-24 sm:h-28 md:h-32 lg:h-36'>
 			<Container className='h-full flex items-center justify-between gap-4'>
-				<Logo />
+				<Logo className='sm:text-5xl lg:text-4xl xl:text-5xl' />
 				<IconButton
 					isHidden={isMenuOpen}
 					className='lg:hidden h-9 grid place-items-center aspect-square text-4xl text-dark-primary dark:text-light-primary transition-colors'

@@ -10,7 +10,7 @@ const HeroSection = () => {
 			className='py-12 flex gap-15 2xl:gap-16'
 		>
 			<div className='flex-1 flex flex-col items-center xl:items-start gap-6 2xl:gap-8'>
-				<h1 className='font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-center xl:text-left text-dark-primary dark:text-light-primary transition-colors'>
+				<h1 className='font-primary font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-center xl:text-left text-dark-primary dark:text-light-primary transition-colors'>
 					Best & Fastest <span className='text-accent'>Delivery</span> in Your
 					Place
 				</h1>

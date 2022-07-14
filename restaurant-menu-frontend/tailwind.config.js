@@ -1,16 +1,17 @@
+const defaultTheme = require('tailwindcss/defaultTheme');
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 	content: ['./src/**/*.{js,jsx,ts,tsx}'],
-  darkMode: 'class',
+	darkMode: 'class',
 	theme: {
 		extend: {
 			colors: {
 				accent: '#fa6235',
-        charcoal: {
-          50: '#36454F',
-          100: '#495D6A',
+				charcoal: {
+					50: '#36454F',
+					100: '#495D6A',
 					200: '#5B7586',
-        }
+				},
 			},
 			textColor: {
 				light: {
@@ -37,6 +38,10 @@ module.exports = {
 					100: '#495D6A',
 					200: '#5B7586',
 				},
+			},
+			fontFamily: {
+				primary: ['Eczar', ...defaultTheme.fontFamily.serif],
+				secondary: ['Poppins', ...defaultTheme.fontFamily.sans],
 			},
 		},
 	},
