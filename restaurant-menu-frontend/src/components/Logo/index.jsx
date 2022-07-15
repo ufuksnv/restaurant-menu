@@ -4,7 +4,7 @@ const Logo = ({ className = '' }) => {
 	return (
 		<Link
 			to='/'
-			className={`overflow-hidden font-primary font-bold text-4xl ${className}`}
+			className={`mt-1.5 overflow-hidden font-primary font-bold text-4xl ${className}`}
 		>
 			Restauránt
 		</Link>
