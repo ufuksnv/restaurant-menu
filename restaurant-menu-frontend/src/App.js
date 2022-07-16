@@ -5,6 +5,7 @@ import { setColorMode } from './store/ui-actions';
 
 import Header from './components/Header';
 import Content from './components/Content';
+import Footer from './components/Footer';
 
 const App = () => {
 	const dispatch = useDispatch();
@@ -15,6 +16,7 @@ const App = () => {
 		<Fragment>
 			<Header />
 			<Content />
+			<Footer />
 		</Fragment>
 	);
 };
