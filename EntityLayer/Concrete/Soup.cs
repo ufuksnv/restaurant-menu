@@ -13,6 +13,7 @@ namespace EntityLayer.Concrete
         public int SoupID { get; set; }
         public string? SoupName { get; set; }
         public string? SoupImage { get; set; }
+        public string? SoupDetails { get; set; }
         public string? SoupPrice { get; set; }
     }
 }

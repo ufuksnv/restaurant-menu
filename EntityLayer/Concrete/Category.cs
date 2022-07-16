@@ -15,7 +15,7 @@ namespace EntityLayer.Concrete
         public string? TittleImage { get; set; }
         public string? ControllerAdress { get; set; }
         public string? Body { get; set; }
-
+        
 
     }
 }

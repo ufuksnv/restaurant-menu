@@ -13,6 +13,7 @@ namespace EntityLayer.Concrete
         public int ColdDrinkID { get; set; }
         public string? ColdDrinkName { get; set; }
         public string? ColdDrinkImage { get; set; }
+        public  string? ColdDrinkDetails { get; set; }
         public string? ColdDrinkPrice { get; set; }
     }
 }

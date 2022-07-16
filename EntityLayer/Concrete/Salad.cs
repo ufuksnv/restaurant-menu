@@ -11,6 +11,7 @@ namespace EntityLayer.Concrete
         public int SaladID { get; set; }
         public string? SaladName { get; set; }
         public string? SaladImage { get; set; }
+        public string? SaladDetails { get; set; }
         public string? SaladPrice { get; set; }
 
     }
