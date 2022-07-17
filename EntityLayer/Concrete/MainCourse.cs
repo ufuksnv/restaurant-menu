@@ -13,6 +13,7 @@ namespace EntityLayer.Concrete
         public int MainCourseID { get; set; }
         public string? MainCourseName { get; set; }
         public string? MainCourseImage { get; set; }
+        public string? MainCourseDetails { get; set; }
         public string? MainCoursePrice { get; set; }
     }
 }
