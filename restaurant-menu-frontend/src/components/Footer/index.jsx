@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom';
 import { FaFacebookF, FaTwitter, FaInstagram } from 'react-icons/fa';
+import { useSelector } from 'react-redux';
 
 import Container from '../Container/index';
 import Logo from './../Logo/index';
 import IconLink from '../IconLink';
 
 const Footer = () => {
+	const info = useSelector((state) => state.info);
 	return (
 		<footer
 			id='footer'
@@ -15,20 +17,20 @@ const Footer = () => {
 				<div className='grid grid-rows-5 items-center gap-2 text-center sm:text-left'>
 					<Logo className='row-span-2 text-dark-primary dark:text-light-primary transition-colors' />
 					<div className='row-span-3 flex flex-col gap-2'>
-						<p className='text-dark-secondary dark:text-light-secondary transition-colors'>
-							Ankara, Turkey
+						<p className='sm:w-fit text-dark-secondary dark:text-light-secondary transition-colors'>
+							{info.address}
 						</p>
 						<a
-							href='/'
-							className='text-dark-secondary dark:text-light-secondary transition-colors'
+							href={`tel:${info.phone}`}
+							className='sm:w-fit text-dark-secondary dark:text-light-secondary hover:text-accent hover:dark:text-accent focus-visible:text-accent focus-visible:dark:text-accent transition-colors'
 						>
-							+90 123 456 7890
+							{info.phone}
 						</a>
 						<a
-							href='/'
-							className='text-dark-secondary dark:text-light-secondary transition-colors'
+							href={`mailto:${info.email}`}
+							className='sm:w-fit text-dark-secondary dark:text-light-secondary hover:text-accent hover:dark:text-accent focus-visible:text-accent focus-visible:dark:text-accent transition-colors'
 						>
-							info@restaurant.com
+							{info.email}
 						</a>
 					</div>
 				</div>
@@ -39,19 +41,19 @@ const Footer = () => {
 					<div className='row-span-3 flex flex-col gap-2'>
 						<Link
 							to='/'
-							className='text-dark-secondary dark:text-light-secondary hover:text-accent hover:dark:text-accent focus-visible:text-accent focus-visible:dark:text-accent transition-colors'
+							className='sm:w-fit text-dark-secondary dark:text-light-secondary hover:text-accent hover:dark:text-accent focus-visible:text-accent focus-visible:dark:text-accent transition-colors'
 						>
 							Home
 						</Link>
 						<Link
-							to='/'
-							className='text-dark-secondary dark:text-light-secondary hover:text-accent hover:dark:text-accent focus-visible:text-accent focus-visible:dark:text-accent transition-colors'
+							to='/menu'
+							className='sm:w-fit text-dark-secondary dark:text-light-secondary hover:text-accent hover:dark:text-accent focus-visible:text-accent focus-visible:dark:text-accent transition-colors'
 						>
 							Menu
 						</Link>
 						<Link
-							to='/'
-							className='text-dark-secondary dark:text-light-secondary hover:text-accent hover:dark:text-accent focus-visible:text-accent focus-visible:dark:text-accent transition-colors'
+							to='/contact'
+							className='sm:w-fit text-dark-secondary dark:text-light-secondary hover:text-accent hover:dark:text-accent focus-visible:text-accent focus-visible:dark:text-accent transition-colors'
 						>
 							Contact
 						</Link>
@@ -59,19 +61,19 @@ const Footer = () => {
 				</div>
 				<div className='flex sm:flex-col gap-2'>
 					<IconLink
-						href='https://www.facebook.com'
+						href={info.facebook}
 						alt='facebook'
 						color='#4267B2'
 						icon={<FaFacebookF size={18} className='z-10' />}
 					/>
 					<IconLink
-						href='https://www.twitter.com'
+						href={info.twitter}
 						alt='twitter'
 						color='#1DA1F2'
 						icon={<FaTwitter size={18} className='z-10' />}
 					/>
 					<IconLink
-						href='https://www.instagram.com'
+						href={info.instagram}
 						alt='instagram'
 						color='linear-gradient(45deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)'
 						icon={<FaInstagram size={18} className='z-10' />}
