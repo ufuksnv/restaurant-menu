@@ -20,5 +20,6 @@ namespace BusinessLayer
         });
 
         public static IMapper Mapper => lazy.Value;
+
     }
 }
