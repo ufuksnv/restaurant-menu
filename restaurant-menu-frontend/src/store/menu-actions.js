@@ -2,7 +2,7 @@ import { menuActions } from './menu-slice';
 
 export const fetchCategories = () => {
 	return async (dispatch) => {
-		const fetchData = async () => {
+		const fetchCategoryIndex = async () => {
 			const response = await fetch('/api/category');
 			const data = await response.json();
 			const convertedData = data.map((item) => ({
@@ -14,13 +14,7 @@ export const fetchCategories = () => {
 			}));
 			return convertedData;
 		};
-		fetchData().then((data) => dispatch(menuActions.setCategories(data)));
-	};
-};
-
-export const fetchCategory = (category) => {
-	return async (dispatch) => {
-		const fetchData = async () => {
+		const fetchCategory = async (category) => {
 			const response = await fetch(`/api/${category.toLowerCase()}`);
 			const data = await response.json();
 			const convertedData = data.map((item) => ({
@@ -37,6 +31,12 @@ export const fetchCategory = (category) => {
 			}));
 			return { [category]: convertedData };
 		};
-		fetchData().then((data) => dispatch(menuActions.addProducts(data)));
+		const categoryIndex = await fetchCategoryIndex();
+		const categories = await Promise.all(
+			categoryIndex.map(async (category) => await fetchCategory(category.body))
+		).then((category) =>
+			category.reduce((acc, curr) => ({ ...acc, ...curr }), {})
+		);
+		dispatch(menuActions.setMenu({ categoryIndex, categories }));
 	};
 };

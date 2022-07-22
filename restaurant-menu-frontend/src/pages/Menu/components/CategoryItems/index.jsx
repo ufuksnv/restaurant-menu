@@ -1,31 +1,23 @@
-import { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
 
-import { fetchCategory } from '../../../../store/menu-actions';
 import Container from '../../../../components/Container';
 import Product from '../../../../components/Product';
 import ProductDetailsModal from '../../../../components/ProductDetailsModal';
 
 const CategoryItems = ({ category }) => {
-	const dispatch = useDispatch();
-
-	const products = useSelector((state) => state.menu.products);
+	const categoryIndex = useSelector((state) => state.menu.categoryIndex);
 	const categories = useSelector((state) => state.menu.categories);
 
 	const [details, setDetails] = useState(null);
 
-	useEffect(() => {
-		if (products?.[category]) return;
-		dispatch(fetchCategory(category));
-	}, [dispatch, category, products]);
-
 	const handleShowDetails = (id) => () => {
-		const product = products[category].find((product) => product.id === id);
+		const product = categories[category].find((product) => product.id === id);
 		setDetails(product);
 	};
 	const handleCloseDetails = () => setDetails(null);
 
-	const { title } = categories.find((item) => item.body === category);
+	const { title } = categoryIndex.find((item) => item.body === category);
 
 	return (
 		<Container
@@ -37,7 +29,7 @@ const CategoryItems = ({ category }) => {
 				{title}
 			</h2>
 			<div className='flex flex-wrap justify-center gap-6'>
-				{products?.[category]?.map(({ id, name, price, image }) => (
+				{categories?.[category]?.map(({ id, name, price, image }) => (
 					<Product
 						key={id}
 						name={name}
