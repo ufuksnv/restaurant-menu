@@ -12,6 +12,9 @@ namespace EntityLayer.Concrete
         public string? SaladName { get; set; }
         public string? SaladImage { get; set; }
         public string? SaladDetails { get; set; }
+        public bool MilkAllert { get; set; }
+        public bool HazelnutAllert { get; set; }
+        public bool WheatAllert { get; set; }
         public string? SaladPrice { get; set; }
 
     }

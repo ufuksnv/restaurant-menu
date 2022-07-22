@@ -14,6 +14,9 @@ namespace EntityLayer.Concrete
         public string? DessertName { get; set; }
         public string? DessertImage { get; set; }
         public string? DessertDetails { get; set; }
+        public bool MilkAllert { get; set; }
+        public bool HazelnutAllert { get; set; }
+        public bool WheatAllert { get; set; }
         public string? DessertPrice { get; set; }
     }
 }
