@@ -1,15 +1,18 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { fetchCategory } from '../../../../store/menu-actions';
 import Container from '../../../../components/Container';
 import Product from '../../../../components/Product';
+import ProductDetailsModal from '../../../../components/ProductDetailsModal';
 
 const CategoryItems = ({ category }) => {
 	const dispatch = useDispatch();
 
 	const products = useSelector((state) => state.menu.products);
 	const categories = useSelector((state) => state.menu.categories);
+
+	const [details, setDetails] = useState(null);
 
 	useEffect(() => {
 		if (products?.[category]) return;
@@ -18,9 +21,9 @@ const CategoryItems = ({ category }) => {
 
 	const handleShowDetails = (id) => () => {
 		const product = products[category].find((product) => product.id === id);
-		const details = `${product.name} - $${product.price}`;
-		alert(details);
+		setDetails(product);
 	};
+	const handleCloseDetails = () => setDetails(null);
 
 	const { title } = categories.find((item) => item.body === category);
 
@@ -45,6 +48,9 @@ const CategoryItems = ({ category }) => {
 					/>
 				))}
 			</div>
+			{details && (
+				<ProductDetailsModal product={details} onClose={handleCloseDetails} />
+			)}
 		</Container>
 	);
 };

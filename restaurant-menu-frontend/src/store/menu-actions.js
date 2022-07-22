@@ -28,6 +28,12 @@ export const fetchCategory = (category) => {
 				name: item[category + 'Name'],
 				price: item[category + 'Price'],
 				image: item[category + 'Image'],
+				details: item[category + 'Details'],
+				allergens: {
+					milk: item.milkAllert,
+					wheat: item.wheatAllert,
+					hazelnut: item.hazelnutAllert,
+				},
 			}));
 			return { [category]: convertedData };
 		};
