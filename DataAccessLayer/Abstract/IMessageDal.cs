@@ -1,13 +1,14 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EntityLayer.Concrete
+namespace DataAccessLayer.Abstract
 {
-    public class UserApp:IdentityUser 
+    public interface IMessageDal : IGenericDal<Message>
     {
+
     }
 }
