@@ -23,5 +23,6 @@ namespace DataAccessLayer.Concrete
         public DbSet<Soup>? soups { get; set; }
         public DbSet<Category>? Categorys { get; set; }
         public DbSet<Contact>? Contacts { get; set; }
+        public DbSet<Message>? Messages  { get; set; }
     }
 }
