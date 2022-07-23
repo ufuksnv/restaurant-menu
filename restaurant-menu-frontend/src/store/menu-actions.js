@@ -1,6 +1,6 @@
 import { menuActions } from './menu-slice';
 
-export const fetchCategories = () => {
+export const fetchMenu = () => {
 	return async (dispatch) => {
 		const fetchCategoryIndex = async () => {
 			const response = await fetch('/api/category');
@@ -31,12 +31,26 @@ export const fetchCategories = () => {
 			}));
 			return { [category]: convertedData };
 		};
+		const fetchTopSellers = async () => {
+			const response = await fetch('/api/topseller');
+			const data = await response.json();
+			return data;
+		};
+
 		const categoryIndex = await fetchCategoryIndex();
+
 		const categories = await Promise.all(
 			categoryIndex.map(async (category) => await fetchCategory(category.body))
 		).then((category) =>
 			category.reduce((acc, curr) => ({ ...acc, ...curr }), {})
 		);
-		dispatch(menuActions.setMenu({ categoryIndex, categories }));
+
+		const topSellers = await fetchTopSellers().then((data) =>
+			data.map(({ category, foodId }) =>
+				categories[category].find((product) => product.id === foodId)
+			)
+		);
+
+		dispatch(menuActions.setMenu({ categoryIndex, categories, topSellers }));
 	};
 };

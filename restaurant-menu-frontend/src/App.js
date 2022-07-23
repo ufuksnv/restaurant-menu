@@ -2,7 +2,7 @@ import { useEffect, Fragment } from 'react';
 
 import { useDispatch } from 'react-redux/es/exports';
 import { setColorMode } from './store/ui-actions';
-import { fetchCategories } from './store/menu-actions';
+import { fetchMenu } from './store/menu-actions';
 import { fetchInfo } from './store/info-actions';
 
 import Header from './components/Header';
@@ -18,7 +18,7 @@ const App = () => {
 		if (!isInitial) return;
 
 		dispatch(setColorMode());
-		dispatch(fetchCategories());
+		dispatch(fetchMenu());
 		dispatch(fetchInfo());
 
 		isInitial = false;
