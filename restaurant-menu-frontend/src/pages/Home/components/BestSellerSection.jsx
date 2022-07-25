@@ -1,3 +1,4 @@
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 
@@ -5,6 +6,8 @@ import Container from '../../../components/Container';
 import ProductCarousel from './ProductCarousel';
 
 const BestSellerSection = () => {
+	const topSellers = useSelector((state) => state.menu.topSellers);
+
 	return (
 		<Container
 			element='section'
@@ -24,7 +27,7 @@ const BestSellerSection = () => {
 						<AiOutlineArrowRight className='hidden sm:block' />
 					</Link>
 				</div>
-				<ProductCarousel />
+				{topSellers && <ProductCarousel products={topSellers} />}
 			</div>
 		</Container>
 	);

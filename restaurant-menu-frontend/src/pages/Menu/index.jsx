@@ -1,36 +1,25 @@
 import { useState, useEffect, Fragment } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
-import { fetchCategories } from '../../store/menu-actions';
 import Container from '../../components/Container';
 import CategoryCarousel from './components/CategoryCarousel';
 import CategoryItems from './components/CategoryItems';
 
-let isInitial = true;
-
 const Menu = () => {
-	const dispatch = useDispatch();
-
-	const categories = useSelector((state) => state.menu.categories);
-
 	const [currentCategory, setCurrentCategory] = useState(null);
 
-	useEffect(() => {
-		if (!isInitial) return;
-		dispatch(fetchCategories());
-		isInitial = false;
-	}, [dispatch]);
+	const categoryIndex = useSelector((state) => state.menu.categoryIndex);
 
 	useEffect(() => {
-		if (!categories) return;
-		setCurrentCategory(categories[0].body);
-	}, [categories]);
+		if (!categoryIndex) return;
+		setCurrentCategory(categoryIndex[0].body);
+	}, [categoryIndex]);
 
 	const handleShowCategory = (body) => () => setCurrentCategory(body);
 
 	return (
 		<Fragment>
-			{categories && (
+			{categoryIndex && (
 				<Container
 					id='categories'
 					element='section'
@@ -38,7 +27,7 @@ const Menu = () => {
 				>
 					<div className='w-full pt-6 pb-2 flex flex-col rounded-2xl gap-8 md:gap-10 lg:gap-14 bg-light-50 sm:bg-light-100 dark:bg-dark-50 sm:dark:bg-dark-100 transition-colors'>
 						<CategoryCarousel
-							categories={categories}
+							categories={categoryIndex}
 							onShowCategory={handleShowCategory}
 						/>
 					</div>
