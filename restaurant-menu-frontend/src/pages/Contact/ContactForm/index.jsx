@@ -1,9 +1,11 @@
+import { useState } from 'react';
 import { IoIosSend } from 'react-icons/io';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
 import Button from '../../../components/Button';
+import SubmitMessageModal from '../SubmitMessageModal';
 
 const phoneRegExp = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/;
 
@@ -22,21 +24,34 @@ const schema = yup.object().shape({
 });
 
 const ContactForm = () => {
+	const [httpError, setHttpError] = useState(null);
+
 	const {
 		register,
 		handleSubmit,
-		formState: { errors },
+		formState: { errors, isSubmitSuccessful },
+		reset,
 	} = useForm({
 		resolver: yupResolver(schema),
 	});
 
-	const onSubmit = (data, e) => {
-		fetch('/api/message/insertmessage', {
-			method: 'POST',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify(data),
-		});
-		e.target.reset();
+	const onSubmit = async (data) => {
+		try {
+			const response = await fetch('/api/message/insertmessage', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify(data),
+			});
+
+			if (!response.ok) throw new Error('Something went wrong!');
+		} catch (error) {
+			setHttpError(error.message);
+		}
+	};
+
+	const handleReset = () => {
+		reset();
+		setHttpError(null);
 	};
 
 	return (
@@ -139,6 +154,13 @@ const ContactForm = () => {
 					<IoIosSend size={24} />
 				</Button>
 			</form>
+			{isSubmitSuccessful && (
+				<SubmitMessageModal
+					isFailed={!!httpError}
+					message={httpError ? httpError : 'Message sent successfully!'}
+					onClose={handleReset}
+				/>
+			)}
 		</div>
 	);
 };
