@@ -1,3 +1,4 @@
+import { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { FaFacebookF, FaTwitter, FaInstagram } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
@@ -5,9 +6,19 @@ import { useSelector } from 'react-redux';
 import Container from '../Container/index';
 import Logo from './../Logo/index';
 import IconLink from '../IconLink';
+import GoogleMapsModal from '../GoogleMapsModal';
 
 const Footer = () => {
+	const [isGoogleMapsModalOpen, setIsGoogleMapsModalOpen] = useState(false);
 	const info = useSelector((state) => state.info);
+
+	const addressButtonRef = useRef(null);
+
+	const handleGoogleMapsModal = (bool) => () => {
+		setIsGoogleMapsModalOpen(bool);
+		addressButtonRef.current.focus();
+	};
+
 	return (
 		<footer
 			id='footer'
@@ -17,9 +28,14 @@ const Footer = () => {
 				<div className='grid grid-rows-5 items-center gap-2 text-center sm:text-left'>
 					<Logo className='row-span-2 text-dark-primary dark:text-light-primary transition-colors' />
 					<div className='row-span-3 flex flex-col gap-2'>
-						<p className='sm:w-fit text-dark-secondary dark:text-light-secondary transition-colors'>
+						<button
+							type='button'
+							className='sm:w-fit text-dark-secondary dark:text-light-secondary hover:text-accent hover:dark:text-accent focus-visible:text-accent focus-visible:dark:text-accent transition-colors'
+							onClick={handleGoogleMapsModal(true)}
+							ref={addressButtonRef}
+						>
 							{info.address}
-						</p>
+						</button>
 						<a
 							href={`tel:${info.phone}`}
 							className='sm:w-fit text-dark-secondary dark:text-light-secondary hover:text-accent hover:dark:text-accent focus-visible:text-accent focus-visible:dark:text-accent transition-colors'
@@ -80,6 +96,9 @@ const Footer = () => {
 					/>
 				</div>
 			</Container>
+			{isGoogleMapsModalOpen && (
+				<GoogleMapsModal onClose={handleGoogleMapsModal(false)} />
+			)}
 		</footer>
 	);
 };
