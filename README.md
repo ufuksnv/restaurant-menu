@@ -39,14 +39,14 @@
 
 ## 📷 Screenshots
 <div>
-  <img alt="Home (Light)" width="480" src="https://user-images.githubusercontent.com/67284445/201116870-8c494d16-c64d-4d02-8e04-1649b34c7b25.png">
-  <img alt="Home (Dark)" width="480" src="https://user-images.githubusercontent.com/67284445/201117074-a80437ca-d0d9-49ce-8c43-1c7999d1c680.png">
+  <img alt="Home (Light)" width="400" src="https://user-images.githubusercontent.com/67284445/201116870-8c494d16-c64d-4d02-8e04-1649b34c7b25.png">
+  <img alt="Home (Dark)" width="400" src="https://user-images.githubusercontent.com/67284445/201117074-a80437ca-d0d9-49ce-8c43-1c7999d1c680.png">
 </div>
 <div>
-  <img alt="Menu (Light)" width="480" src="https://user-images.githubusercontent.com/67284445/201117108-2ba96a7c-b0d6-488c-a41a-85875fc60606.png">
-  <img alt="Menu (Dark)" width="480" src="https://user-images.githubusercontent.com/67284445/201117134-3463ea67-e729-412d-bf2b-b0bf655b21ef.png">
+  <img alt="Menu (Light)" width="400" src="https://user-images.githubusercontent.com/67284445/201117108-2ba96a7c-b0d6-488c-a41a-85875fc60606.png">
+  <img alt="Menu (Dark)" width="400" src="https://user-images.githubusercontent.com/67284445/201117134-3463ea67-e729-412d-bf2b-b0bf655b21ef.png">
 </div>
 <div>
-  <img alt="Contact (Light)" width="480" src="https://user-images.githubusercontent.com/67284445/201117150-8f71d24a-f51b-4a4e-bd7c-41af31e77544.png">
-  <img alt="Contact (Dark)" width="480" src="https://user-images.githubusercontent.com/67284445/201117167-1bbd6417-60ec-4a02-8b41-ace0321b6da6.png">
+  <img alt="Contact (Light)" width="400" src="https://user-images.githubusercontent.com/67284445/201117150-8f71d24a-f51b-4a4e-bd7c-41af31e77544.png">
+  <img alt="Contact (Dark)" width="400" src="https://user-images.githubusercontent.com/67284445/201117167-1bbd6417-60ec-4a02-8b41-ace0321b6da6.png">
 </div>
